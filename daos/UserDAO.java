@@ -1,4 +1,6 @@
-package finalProject;
+package finalProject.daos;
+
+import finalProject.entities.User;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -28,7 +30,7 @@ public class UserDAO implements DAO<User> {
     //Create file for storing users
     private UserDAO() {
         try {
-            file = new File("src/userBase.txt");
+            file = new File("src/finalProject/dataBase/userBase.txt");
             if (file.createNewFile())
                 System.out.println("File of userBase has created");
 
@@ -36,10 +38,10 @@ public class UserDAO implements DAO<User> {
             System.err.println("File of userBase hasn`t created");
         }
 
-        //managing collection of users from file, while creating ex. of finalProject.UserDAO()
+        //managing collection of users from file, while creating ex. of finalProject.daos.UserDAO()
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             if (br.readLine() == null)
-                System.out.println("finalProject.User Base is empty!");
+                System.out.println("finalProject.entities.User Base is empty!");
             else {
                 Stream<String> streamFromFiles = Files.lines(Paths.get(file.getAbsolutePath()));
                 streamFromFiles.forEach(line -> {
@@ -105,7 +107,7 @@ public class UserDAO implements DAO<User> {
             System.err.println("Add correct information to file!");
             return false;
         }
-        System.out.println("finalProject.User has been added to dataBase");
+        System.out.println("finalProject.entities.User has been added to dataBase");
         return true;
     }
 
@@ -123,7 +125,7 @@ public class UserDAO implements DAO<User> {
                 writeToFile(file, usersBase);
             }
         } catch (NoSuchElementException e) {
-            System.err.println("finalProject.User with ID %d is absent in dataBase");
+            System.err.println("finalProject.entities.User with ID %d is absent in dataBase");
             return false;
         } catch (NullPointerException e) {
             System.err.println("Add correct information about user!");

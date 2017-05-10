@@ -1,4 +1,9 @@
-package finalProject;
+package finalProject.console;
+
+import finalProject.controller.Controller;
+import finalProject.entities.Hotel;
+import finalProject.entities.Room;
+import finalProject.entities.User;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static finalProject.Controller.*;
+import static finalProject.controller.Controller.*;
 
 /**
  * Created by Aleksandr on 02.05.2017.
@@ -17,6 +22,21 @@ public class Admin {
         Controller controller = new Controller();
         System.out.println("You entered as administrator.");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println(
+                "███████████████████████████████\n" +
+                        "█────██────███─███──█───██─██─█\n" +
+                        "█─██─██─██──██──█───██─███──█─█\n" +
+                        "█────██─██──██─█─█──██─███─█──█\n" +
+                        "█─██─██─██──██─███──██─███─██─█\n" +
+                        "█─██─██────███─███──█───██─██─█\n" +
+                        "███████████████████████████████\n" +
+                        "█████████████████████████████\n" +
+                        "███─███──█────██────███───█\n" +
+                        "███──█───█─██─██─██──██─███\n" +
+                        "███─█─█──█─██─██─██──██───█\n" +
+                        "███─███──█─██─██─██──██─███\n" +
+                        "███─███──█────██────███───█\n" +
+                        "███████████████████████████");
         first:
         while (true) {
             System.out.println("1- find user by name," +
@@ -140,6 +160,70 @@ public class Admin {
                         else System.out.println("Something going wrong");
                     }
                     System.out.println("Are we keeping to delete users?");
+                }
+            }
+
+            //delete hotels
+            if (choice1.equals("8")) {
+                while (true) {
+                    System.out.println("For deleting hotel, enter it`s name or id;" +
+                            "or 9- previous menu, 0- exit from administrator mode");
+                    String choice2 = br.readLine();
+                    if (choice2.equals("0")) break first;
+                    if (choice2.equals("9")) continue first;
+                    long id;
+                    try {
+                        id = Long.parseLong(choice2.trim());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Incorrect input! Put int value");
+                        continue;
+                    }
+                    Hotel hotel = controller.findHotelById(id);
+                    if (hotel == null) {
+                        System.out.println("Hotel with this Id hasn`t been found.");
+                        continue;
+                    }
+                    System.out.println("Are you sure you want to delete user: " + hotel + "?" +
+                            "Put 1 for accept, or any button for cancel");
+                    String ch = br.readLine();
+                    if (ch.equals("1")) {
+                        boolean b = controller.removeHotel(hotel);
+                        if (b) System.out.println("Hotel " + hotel + " has been deleted.");
+                        else System.out.println("Something going wrong");
+                    }
+                    System.out.println("Are we keeping to delete hotels?");
+                }
+            }
+
+            //delete rooms
+            if (choice1.equals("12")) {
+                while (true) {
+                    System.out.println("For deleting room, enter it`s name or id;" +
+                            "or 9- previous menu, 0- exit from administrator mode");
+                    String choice2 = br.readLine();
+                    if (choice2.equals("0")) break first;
+                    if (choice2.equals("9")) continue first;
+                    long id;
+                    try {
+                        id = Long.parseLong(choice2.trim());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Incorrect input! Put int value");
+                        continue;
+                    }
+                    Room room = controller.findRoomById(id);
+                    if (room == null) {
+                        System.out.println("Room with this Id hasn`t been found.");
+                        continue;
+                    }
+                    System.out.println("Are you sure you want to delete user: " + room + "?" +
+                            "Put 1 for accept, or any button for cancel");
+                    String ch = br.readLine();
+                    if (ch.equals("1")) {
+                        boolean b = controller.removeRoom(room);
+                        if (b) System.out.println("Room " + room + " has been deleted.");
+                        else System.out.println("Something going wrong");
+                    }
+                    System.out.println("Are we keeping to delete rooms?");
                 }
             }
 
@@ -276,12 +360,11 @@ public class Admin {
                     }
                     Hotel hotel = controller.findHotelById(hotelId);
                     if (hotel == null) continue;
-                    Room room = controller.addRoom(new Room(0,price,persons,hotel));
-                    if (room!=null) System.out.println("Room has been added: " + room);
+                    Room room = controller.addRoom(new Room(0, price, persons, hotel));
+                    if (room != null) System.out.println("Room has been added: " + room);
                     System.out.println("Are we keeping to add rooms?");
                 }
             }
-
 
             System.out.println("Incorrect input!\n");
         }

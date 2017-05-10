@@ -1,4 +1,8 @@
-package finalProject;
+package finalProject.daos;
+
+import finalProject.entities.Hotel;
+import finalProject.entities.Room;
+import finalProject.entities.User;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -27,7 +31,7 @@ public class RoomDAO implements DAO<Room> {
     //Creating file for saving rooms
     private RoomDAO() {
         try {
-            file = new File("src/roomBase.txt");
+            file = new File("src/finalProject/dataBase/roomBase.txt");
             if (file.createNewFile()) {
                 System.out.println("File has created!");
             }
@@ -155,7 +159,7 @@ public class RoomDAO implements DAO<Room> {
                 writerToFile(file, roomList);
             }
         } catch (NoSuchElementException e) {
-            System.err.printf("The finalProject.Room with this ID %d isn`t in base." + "\n", room.getId());
+            System.err.printf("The finalProject.entities.Room with this ID %d isn`t in base." + "\n", room.getId());
             return false;
         } catch (NullPointerException e) {
             System.err.println("Add correct information to file!");

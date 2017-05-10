@@ -1,4 +1,6 @@
-package finalProject;
+package finalProject.entities;
+
+import finalProject.daos.RoomDAO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -73,7 +75,7 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "finalProject.Hotel{" +
+        return "finalProject.entities.Hotel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", city='" + city + '\'' +

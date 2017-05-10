@@ -1,4 +1,4 @@
-package finalProject;
+package finalProject.entities;
 
 /**
  * Created by Aleksandr on 26.04.2017.
@@ -60,7 +60,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "finalProject.User{" +
+        return "finalProject.entities.User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +

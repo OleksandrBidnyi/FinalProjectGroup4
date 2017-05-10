@@ -1,4 +1,6 @@
-package finalProject;
+package finalProject.daos;
+
+import finalProject.entities.Hotel;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -26,7 +28,7 @@ public class HotelDAO implements DAO<Hotel> {
 
     private HotelDAO() {
         try {
-            file = new File("src/hotelBase.txt");
+            file = new File("src/finalProject/dataBase/hotelBase.txt");
             if (file.createNewFile()) {
                 System.out.println("File has created!");
             }
@@ -74,13 +76,13 @@ public class HotelDAO implements DAO<Hotel> {
             } else {
                 if (hotelList.stream().anyMatch(hotelFromBase ->
                         hotelFromBase.getId() == hotel.getId())) {
-                    System.out.println("finalProject.Hotel with same ID has been already exist");
+                    System.out.println("finalProject.entities.Hotel with same ID has been already exist");
                     return false;
                 }
                 if (hotelList.stream().anyMatch(hotel1 ->
                         (hotel1.getCity().toLowerCase().trim().equals(hotel.getCity().toLowerCase().trim())
                                 && hotel1.getName().toLowerCase().trim().equals(hotel.getName().toLowerCase().trim())))) {
-                    System.out.println("finalProject.Hotel has been added, but it`s had been already exist!");
+                    System.out.println("finalProject.entities.Hotel has been added, but it`s had been already exist!");
                 }
                 hotelList.add(hotel);
                 writeToFile(file, hotelList);
@@ -121,7 +123,7 @@ public class HotelDAO implements DAO<Hotel> {
                 writeToFile(file, hotelList);
             }
         } catch (NoSuchElementException e) {
-            System.err.println("finalProject.Hotel with ID %d is absent in the hotelBase");
+            System.err.println("finalProject.entities.Hotel with ID %d is absent in the hotelBase");
         } catch (NullPointerException e) {
             System.err.println("Add correct information to file!");
             return false;

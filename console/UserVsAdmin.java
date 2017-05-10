@@ -1,4 +1,8 @@
-package finalProject;
+package finalProject.console;
+
+import finalProject.controller.Controller;
+import finalProject.entities.Room;
+import finalProject.entities.User;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,15 +11,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static finalProject.Controller.*;
+import static finalProject.controller.Controller.*;
 
 /**
  * Created by Aleksandr on 03.05.2017.
  */
-public class Main {
-    public static void main(String[] args) throws IOException {
+public class UserVsAdmin {
+    public static void console() throws IOException {
         Controller controller = new Controller();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println(
+                "███████████████████████████████████████\n" +
+                        "█─███─█───█─███─███────█────█─███─█───█\n" +
+                        "█─███─█─███─███─███─██─█─██─█──█──█─███\n" +
+                        "█─█─█─█───█─███─███─████─██─█─█─█─█───█\n" +
+                        "█─────█─███─███─███─██─█─██─█─███─█─███\n" +
+                        "██─█─██───█───█───█────█────█─███─█───█\n" +
+                        "███████████████████████████████████████");
         first:
         while (true) {
             System.out.println("1-search rooms, 2- search hotels by name, 3- search hotel by city\n" +
@@ -29,7 +41,7 @@ public class Main {
                 while (true) {
                     System.out.println("For searching rooms you should enter parameters split they by symbol / in such format:" +
                             "city/hotel`s name/count of persons/low price/up price, example: Lviv/Dnipro/2/200/500 \n" +
-                            "if parameter doesn`t matter - use symbol *. " +
+                            "if parameter doesn`t matter - use symbol *, example: */*/*/*/*. " +
                             "Also: 9- main menu, 0- finish work");
                     String choice4 = bufferedReader.readLine();
                     if (choice4.equals("0")) break first;
@@ -222,7 +234,7 @@ public class Main {
                                 while (true) {
                                     System.out.println("For searching rooms, enter parameters using symbol /, in format:" +
                                             "city/hotel`s name/count of persons/low price/up price, example: Lviv/Dnipro/2/200/500 \n" +
-                                            "if parameter doesn`t matter - use symbol *. " +
+                                            "if parameter doesn`t matter - use symbol *, example: */*/*/*/*. " +
                                             "Also: 9- previous menu, 0- exit from administrator mode ");
                                     String choice4 = bufferedReader.readLine();
                                     if (choice4.equals("0")) break first;
@@ -256,7 +268,7 @@ public class Main {
                                         if (choice5.equals("2")) {
                                             while (true) {
                                                 System.out.println("For booking enter rooms id and hotels id using /," +
-                                                        "example: 555/777, 9- previous menu; 0- finish work");
+                                                        "\nexample: 555/777, 9- previous menu; 0- finish work");
                                                 String choice6 = bufferedReader.readLine();
                                                 if (choice6.equals("0")) break first;
                                                 if (choice6.equals("9")) continue third;
@@ -289,7 +301,7 @@ public class Main {
             if (choice1.equals("5")) {
                 while (true) {
                     System.out.println("Registration. Enter name and password using symbol /, example Peter/1111; " +
-                            "or 1- back to main menu, 0- finish work");
+                            "\nor 1- back to main menu, 0- finish work");
                     String choice2 = bufferedReader.readLine();
                     if (choice2.length() == 1) {
                         if (choice2.equals("0")) break first;
@@ -306,7 +318,18 @@ public class Main {
             }
             System.out.println("Incorrect value");
         }
-        System.out.println("Good luck");
+        System.out.println(
+                "████─████─████─████\n" +
+                        "█────█──█─█──█─█──██\n" +
+                        "█─██─█──█─█──█─█──██\n" +
+                        "█──█─█──█─█──█─█──██\n" +
+                        "████─████─████─████\n" +
+                        "\n" +
+                        "█───█─█─████─█──█\n" +
+                        "█───█─█─█──█─█─█\n" +
+                        "█───█─█─█────██\n" +
+                        "█───█─█─█──█─█─█\n" +
+                        "███─███─████─█──█");
         bufferedReader.close();
     }
 }

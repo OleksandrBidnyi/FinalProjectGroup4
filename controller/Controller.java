@@ -1,4 +1,11 @@
-package finalProject;
+package finalProject.controller;
+
+import finalProject.daos.HotelDAO;
+import finalProject.daos.RoomDAO;
+import finalProject.daos.UserDAO;
+import finalProject.entities.Hotel;
+import finalProject.entities.Room;
+import finalProject.entities.User;
 
 import java.util.List;
 import java.util.Map;
@@ -10,7 +17,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Aleksandr on 29.04.2017.
  */
-public class Controller {
+public class Controller implements ControllerInterface {
     public static final String CITY = "city";
     public static final String HOTEL_NAME = "hotelName";
     public static final String PERSONS = "persons";
@@ -131,7 +138,7 @@ public class Controller {
                         System.out.println("You hasn`t booked this room");
                     }
                 } catch (NoSuchElementException | NullPointerException e) {
-                    System.err.printf("finalProject.Room with ID %d in hotel with ID %d hasn`t been found \n", roomId, hotelId);
+                    System.err.printf("finalProject.entities.Room with ID %d in hotel with ID %d hasn`t been found \n", roomId, hotelId);
                 }
             } catch (NoSuchElementException | NullPointerException e) {
                 System.err.printf("The hotel with ID %d is absent in base\n", hotelId);
@@ -291,7 +298,7 @@ public class Controller {
         List <User> list = UserDAO.getUserDAO().getBase().stream().filter(user ->
         user.getName().toLowerCase().contains(name.toLowerCase())).collect(Collectors.toList());
         if(list.size() == 0)
-            System.out.println("finalProject.User hasn`t been found");
+            System.out.println("finalProject.entities.User hasn`t been found");
         return list;
     }
 
