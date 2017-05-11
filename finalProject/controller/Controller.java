@@ -13,10 +13,6 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 
-
-/**
- * Created by Aleksandr on 29.04.2017.
- */
 /**
  * Class with internal functionality.
  */
