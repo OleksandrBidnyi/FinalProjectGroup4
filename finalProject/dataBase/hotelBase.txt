@@ -1,2 +1,6 @@
 200@Hilton@Kiev
 201@Hayat@Kiev
+202@Ukraine@Odesa
+203@Itaka@Odesa
+204@Dnepr@Harkiv
+205@Bereg@Harkiv
