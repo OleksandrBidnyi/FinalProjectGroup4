@@ -13,9 +13,7 @@ import java.util.Map;
 
 import static finalProject.controller.Controller.*;
 
-/**
- * Created by Aleksandr on 03.05.2017.
- */
+
 public class UserVsAdmin {
     public static void console() throws IOException {
         Controller controller = new Controller();
