@@ -36,8 +36,8 @@ public class HotelDAO implements DAO<Hotel> {
         return hotelDAO;
     }
 
-       /**
-     * HotelDAO method creates Hotel's DataBase.
+         /**
+     * HotelDAO method creates file for saving hotels in Hotel's DataBase.
      */
     private HotelDAO() {
         try {
