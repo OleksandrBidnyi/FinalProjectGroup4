@@ -7,9 +7,6 @@ import finalProject.entities.User;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Aleksandr on 10.05.2017.
- */
 public interface ControllerInterface {
     boolean registerUser(User newUser);
 
