@@ -11,9 +11,6 @@ import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
 /**
- * Created by Aleksandr on 28.04.2017.
- */
-/**
  * HotelDAO is a realization of interface DAO with his own fields and methods that can add,
  * remove and edit Hotel in Hotel's DataBase.
  */
