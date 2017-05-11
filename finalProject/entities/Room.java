@@ -1,8 +1,5 @@
 package finalProject.entities;
 
-/**
- * Created by Aleksandr on 26.04.2017.
- */
 public class Room {
     private long id;
     private int price;
