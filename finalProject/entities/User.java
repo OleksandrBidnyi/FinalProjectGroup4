@@ -1,8 +1,5 @@
 package finalProject.entities;
 
-/**
- * Created by Aleksandr on 26.04.2017.
- */
 public class User {
     private long id;
     private String name;
