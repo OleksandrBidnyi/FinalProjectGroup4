@@ -13,9 +13,6 @@ import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
 /**
- * Created by Aleksandr on 26.04.2017.
- */
-/**
  * RoomDAO is a realization of interface DAO with his own fields and methods that can add,
  * remove and edit Room in Room's DataBase.
  */
