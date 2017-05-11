@@ -5,9 +5,6 @@ import finalProject.daos.RoomDAO;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by Aleksandr on 26.04.2017.
- */
 public class Hotel {
     private long id;
     private String name;
