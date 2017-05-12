@@ -40,7 +40,7 @@ public class Admin {
         first:
         while (true) {
             System.out.println("1- find user by name," +
-                    " 2 - users activity(booked rooms," +
+                    " 2 - users activity(booked rooms)," +
                     " 3- delete users," +
                     "\n4- find hotels by name," +
                     " 5 - find hotels by city," +
