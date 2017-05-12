@@ -4,3 +4,5 @@
 203@Itaka@Odesa
 204@Dnepr@Harkiv
 205@Bereg@Harkiv
+206@White@Odesa
+207@Black@Odesa
