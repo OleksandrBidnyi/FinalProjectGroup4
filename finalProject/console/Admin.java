@@ -17,6 +17,9 @@ import static finalProject.controller.Controller.*;
 /**
  * Here is administrator's entrance
  */
+/**
+ * Here is administrator's entrance
+ */
 public class Admin {
     public static void root() throws IOException {
         Controller controller = new Controller();
